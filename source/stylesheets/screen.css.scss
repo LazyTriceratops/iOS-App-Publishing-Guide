@@ -462,12 +462,13 @@ html, body {
   }
 
   aside {
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
-    line-height: 1.6;
+    line-height: 1.3;
+    font-size: 0.8em;
 
     &.warning {
       background-color: $aside-warning-bg;
