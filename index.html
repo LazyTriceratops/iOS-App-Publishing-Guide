@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Publishing an iOS Application to the App Store</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,293 +210,185 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#materials" class="toc-h1 toc-link" data-title="materials">Materials</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#preparations" class="toc-h2 toc-link" data-title="preparations">Preparations:</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#creating-your-app-in-itunes-connect" class="toc-h1 toc-link" data-title="creating-your-app-in-itunes-connect">Creating your App in iTunes Connect</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-initialization" class="toc-h2 toc-link" data-title="step-1-initialization">Step 1 — Initialization</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-app-information" class="toc-h2 toc-link" data-title="step-2-app-information">Step 2 — App Information</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-pricing-and-availability" class="toc-h2 toc-link" data-title="step-3-pricing-and-availability">Step 3 — Pricing and Availability</a>
+                  </li>
+                  <li>
+                    <a href="#step-4-prepare-for-submission" class="toc-h2 toc-link" data-title="step-4-prepare-for-submission">Step 4 — Prepare for Submission</a>
+                  </li>
+                  <li>
+                    <a href="#step-5-archiving-and-sending-a-build-to-apple" class="toc-h2 toc-link" data-title="step-5-archiving-and-sending-a-build-to-apple">Step 5 — Archiving and Sending a Build to Apple</a>
+                  </li>
+              </ul>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='developer.apple.com'>Sign up for a Developer License</a></li>
+            <li><a href='itunesconnect.com'>iTunes Connect</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+        <p style="font-size:32px;font-weight:bold;text-align:center;padding-top:25px;">Publishing an iOS Application to the App Store</p>
+<h1 id='introduction'>Introduction</h1>
+<p>Publishing an App to Apple’s App Store can be a complicated process. Over the years their publishing platform, iTunes Connect, has become easier to work with. But the first attempt at publishing an iOS App can still be intimidating. This set of instructions will help assist you in connecting your app to iTunes Connect, complete the process of preparing it for review, publishing it to the App Store, and interpreting the generalized data tracked through iTunes Connect.</p>
+<h1 id='materials'>Materials</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>◽ Already built iOS Application. <br>
+◽ An Apple Developer Account (see link on left of screen)</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>In order to publish an application to the App Store, only two things are needed. 1) An application. This set of instructions is based off the assumption that you have completed the process of developing an application in Xcode. And 2) an Apple Developer account. A Developer Account should have previously been created through developer.apple.com.</p>
+<h2 id='preparations'>Preparations:</h2>
+<p>In addition to the required materials, you will also need to prepare your application&#39;s icon set and at least one (with a maximum of ten) screen shots.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Icons can be easily prepared by downloading the Mac App Prepo on the Mac App Store. A 1024px x 1024px version will be needed for iTunes Artwork.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+Screenshots can be prepared in the simulator by pressing `CMD + S` on the screen you would like to capture in the simulator.
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='creating-your-app-in-itunes-connect'>Creating your App in iTunes Connect</h1><h2 id='step-1-initialization'>Step 1 — Initialization</h2>
+<p>iTunes Connect&#39;s home screen contains several icons to help you manage various parts of of the application deployment process. The first step in publishing an app is creating an application in iTunes Connect. To do this, select the &quot;My Apps&quot; icon at the top left of the available icons. From here, select the plus button (which is also located towards the top left of the screen).</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>This will bring up the New App card as seen below:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<ol>
+<li>Choose the type of app you are publishing.</li>
+<li>Pick a name for your application. This must be unique, and with the size of the App Store, this can be difficult. One method of avoiding conflicts is to add a hyphenated title (i.e. &quot;<name of app> - The best <single word describing app> west of the Mississippi&quot;).</li>
+<li>Select the language you expect most of your user base to use.</li>
+<li>The Bundle ID is what links your app in iTunes Connect to the app you&#39;ve built in Xcode. If your app&#39;s Bundle ID isn&#39;t listed, you will need to go back to <a href='developer.apple.com'>developer.apple.com</a> and set it up.</li>
+<li>The SKU will need to be a unique identifier. After this point it won&#39;t be needed for the purposes of this tutorial.</li>
+</ol>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><img src="images/NewAppInit.png" title="New App Initialization" alt="Newappinit" /></p>
+<h2 id='step-2-app-information'>Step 2 — App Information</h2>
+<p>After creating your app in iTunes Connect, you will be greeted with the App Information page. This page contains general information about your app that will inform your users about the various aspects of your app before purchasing.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<ol>
+<li>This is the name you created in the previous step.</li>
+<li>Subtitles will appear under your App Name and should help describe your app as briefly as possible.</li>
+<li>The Privacy Policy is optional, unless your app gathers data or is a &quot;Made for Kids&quot; app. In which case you will be required to enter a URL to your Privacy Policy.</li>
+<li>If you ever change your Bundle Identifier in Xcode, you will also need to change it here.</li>
+<li>Here you can add a secondary language if applicable.</li>
+</ol>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p><img src="images/AppInformation.png" title="App Information" alt="Appinformation" /></p>
+<h2 id='step-3-pricing-and-availability'>Step 3 — Pricing and Availability</h2>
+<p>The next tab down on the left side of the screen is the Pricing and Availability setup. From here you will need to set the price for your app (even if it is going to be sold as Free). Prices can also be set differently for different currencies.</p>
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
+<aside class="notice">
+The selected price is the customer facing price. Apple takes care of the tax then splits the revenue 70%/30% with the developer.
+</aside>
+
+<p>You are also able to setup preordering, customize availability by territory, offer discounts for volume purchases, and disable bitcode auto-recompilation.</p>
+<h2 id='step-4-prepare-for-submission'>Step 4 — Prepare for Submission</h2>
+<p>To finish the preparation process, select <b>1.0 Prepare for Submission</b>. This is the largest step (second to creating your app) and most complicated. This is simplified by handling each section individually.</p>
+
+<blockquote>
+<ol>
+<li>Every app submission requires at least one (and as many as 10) previews and screenshots for each of your app&#39;s supported devices. This is best accomplished by running your app in the simulator and pressing ⌘ + S to save a screenshot. A preview can be filmed by using either a device or the simulator and the Quicktime application to record the screen.</li>
+<li>Promotional text is the first thing a user will see when they tap on your app in the App Store. It is intended to be used as a way to highlight current features. Under this is the App Description, which is intended to detail the content of your application.</li>
+<li>Keywords — used to help users find your app when searched.<br>Support URL — a link to an external website used to answer potential user&#39;s questions.<br>Marketing URL — an optional link to help further inform a potential user on why they should download your app.</li>
+<li>A build of your app will appear here after it is sent to Apple through Xcode and finishes processing.</li>
+<li>General App Information — Starting with the upper left, the App Store Icon will be filled in when an uploaded build of your app is selected. Below this is the version number. it is populated with <code>1.0</code>, and should be increased with every version submitted to the App Store. Apple will not approve an app submitted with a less than <code>1.0</code> version number. A general age rating will be generated for your app by tapping <code>edit</code>, and filling out the corresponding survey. If you own a Copyright the date and Copyright holder should be entered in the field provided. A street address is required for an App Store submission, it will not be viewable on the App Store (unless <code>Trade Representative Contact Information</code> is selected, in which case the information provided will be viewable in the Korean store).</li>
+<li>If your application requires users to sign in you will need to provide a generic user for Apple to use with their review. You will also need to provide contact information for the reviewer and can provide any notes to help the reviewer understand aspects of your app.</li>
+</ol>
+</blockquote>
+
+<p><img src="images/PreparingForSubmission.png" title="App Information" alt="Preparingforsubmission" /></p>
+
+<aside class="warning">
+ Be sure to hit `Save` in the upper righthand side of the window before continuing.
+</aside>
+<h2 id='step-5-archiving-and-sending-a-build-to-apple'>Step 5 — Archiving and Sending a Build to Apple</h2>
+<p>Jumping out of iTunes Connect, open your application&#39;s project file. In order to get the app from Xcode to iTunes Connect an archived build needs to be sent to Apple.</p>
+
+<blockquote>
+<ol>
+<li>Before Archiving your project, make sure your project set to run on <code>Generic iOS Device</code> (or a physical device you have connected and paired to your developer account).</li>
+<li>In the menu bar, select <code>Product</code> and Archive.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 1:
+<img src="images/Xcode-01.png" title="Archive Step 1" alt="Xcode 01" /></p>
+
+<blockquote>
+<ol>
+<li>After the archive is built, select <code>Send To App Store</code></li>
+</ol>
+</blockquote>
+
+<p>Archive Step 2:
+<img src="images/Xcode-02.png" title="Archive Step 2" alt="Xcode 02" /></p>
+
+<blockquote>
+<ol>
+<li>Leave the settings at their default state and select <code>Next</code>.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 3:
+<img src="images/Xcode-03.png" title="Archive Step 3" alt="Xcode 03" /></p>
+
+<blockquote>
+<ol>
+<li>Select <code>Next</code>.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 4:
+<img src="images/Xcode-04.png" title="Archive Step 4" alt="Xcode 04" /></p>
+
+<blockquote>
+<ol>
+<li>Select Upload. This process should take up to about 5 minutes depending on the size of your app.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 5:
+<img src="images/Xcode-05.png" title="Archive Step 5" alt="Xcode 05" /></p>
+
+<p>After uploading the build it will take some time to process on Apple&#39;s servers before being available to add to your iTunes Connect (this has recently been improved to take 5-20 minutes). Once it has finished processing Apple will send an email (or push notification if you have the iTunes Connect iOS App downloaded).</p>
+
+<p>Switching back to iTunes Connect, select the build you just uploaded in the <b>1.0 Prepare for Submission</b> section (see Step — 4 item 4). Once the build has been selected, save your progress again and select <code>Submit for Review</code>. The review process can take anywhere from a few hours to a few days to complete, but once it does your app will be available in the App Store for download (unless Apple rejects it, in which case, follow their directions on what needs to be changed and follow the above steps to resubmit).</p>
+
+<p>Best of luck!</p>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
