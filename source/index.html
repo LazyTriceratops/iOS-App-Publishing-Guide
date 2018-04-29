@@ -1,0 +1,400 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Publishing an iOS Application to the App Store</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#materials" class="toc-h1 toc-link" data-title="materials">Materials</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#preparations" class="toc-h2 toc-link" data-title="preparations">Preparations:</a>
+                  </li>
+                  <li>
+                    <a href="#warnings" class="toc-h2 toc-link" data-title="warnings">Warnings:</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#creating-your-app-in-itunes-connect" class="toc-h1 toc-link" data-title="creating-your-app-in-itunes-connect">Creating your App in iTunes Connect</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#step-1-initialization" class="toc-h2 toc-link" data-title="step-1-initialization">Step 1 — Initialization</a>
+                  </li>
+                  <li>
+                    <a href="#step-2-app-information" class="toc-h2 toc-link" data-title="step-2-app-information">Step 2 — App Information</a>
+                  </li>
+                  <li>
+                    <a href="#step-3-pricing-and-availability" class="toc-h2 toc-link" data-title="step-3-pricing-and-availability">Step 3 — Pricing and Availability</a>
+                  </li>
+                  <li>
+                    <a href="#step-4-prepare-for-submission" class="toc-h2 toc-link" data-title="step-4-prepare-for-submission">Step 4 — Prepare for Submission</a>
+                  </li>
+                  <li>
+                    <a href="#step-5-archiving-and-sending-a-build-to-apple" class="toc-h2 toc-link" data-title="step-5-archiving-and-sending-a-build-to-apple">Step 5 — Archiving and Sending a Build to Apple</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='developer.apple.com'>Sign up for a Developer License</a></li>
+            <li><a href='itunesconnect.com'>iTunes Connect</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <p style="font-size:32px;font-weight:bold;text-align:center;padding-top:25px;">Publishing an iOS Application to the App Store</p>
+<h1 id='introduction'>Introduction</h1>
+<p>Publishing an App to Apple’s App Store can be a complicated process. Over the years their publishing platform, iTunes Connect, has become easier to work with. But the first attempt at publishing an iOS App can still be intimidating. This set of instructions will help assist you in connecting your app to iTunes Connect, complete the process of preparing it for review, publishing it to the App Store, and interpreting the generalized data tracked through iTunes Connect.</p>
+<h1 id='materials'>Materials</h1>
+<blockquote>
+<p>◽ Already built iOS Application. <br>
+◽ An Apple Developer Account (see link on left of screen)</p>
+</blockquote>
+
+<p>In order to publish an application to the App Store, only two things are needed. 1) An application. This set of instructions is based off the assumption that you have completed the process of developing an application in Xcode. And 2) an Apple Developer account. A Developer Account should have previously been created through developer.apple.com.</p>
+<h2 id='preparations'>Preparations:</h2>
+<p>In addition to the required materials, you will also need to prepare your application&#39;s icon set and at least one (with a maximum of ten) screen shots.</p>
+
+<aside class="notice">
+Icons can be easily prepared by downloading the Mac App Prepo on the Mac App Store. A 1024px x 1024px version will be needed for iTunes Artwork.
+</aside>
+
+<aside class="notice">
+Screenshots can be prepared in the simulator by pressing `CMD + S` on the screen you would like to capture in the simulator.
+</aside>
+<h2 id='warnings'>Warnings:</h2>
+<p>Any mistakes you might make in this process will be fairly easy to recover from. The key thing to keep track of is your Bundle Identifier. This is what connects your project in Xcode to your app in iTunes Connect. Within iTunes Connect, Apple won&#39;t let you continue unless the current step is complete.</p>
+<h1 id='creating-your-app-in-itunes-connect'>Creating your App in iTunes Connect</h1><h2 id='step-1-initialization'>Step 1 — Initialization</h2>
+<p>iTunes Connect&#39;s home screen contains several icons to help you manage various parts of of the application deployment process. The first step in publishing an app is creating an application in iTunes Connect. To do this, select the &quot;My Apps&quot; icon at the top left of the available icons. From here, select the plus button (which is also located towards the top left of the screen).</p>
+
+<p>This will bring up the New App card as seen below:</p>
+
+<blockquote>
+<ol>
+<li>Choose the type of app you are publishing.</li>
+<li>Pick a name for your application. This must be unique, and with the size of the App Store, this can be difficult. One method of avoiding conflicts is to add a hyphenated title (i.e. &quot;<name of app> - The best <single word describing app> west of the Mississippi&quot;).</li>
+<li>Select the language you expect most of your user base to use.</li>
+<li>The Bundle ID is what links your app in iTunes Connect to the app you&#39;ve built in Xcode. If your app&#39;s Bundle ID isn&#39;t listed, you will need to go back to <a href='developer.apple.com'>developer.apple.com</a> and set it up.</li>
+<li>The SKU will need to be a unique identifier. After this point it won&#39;t be needed for the purposes of this tutorial.</li>
+</ol>
+</blockquote>
+
+<p><img src="images/NewAppInit.png" title="New App Initialization" alt="Newappinit" /></p>
+<h2 id='step-2-app-information'>Step 2 — App Information</h2>
+<p>After creating your app in iTunes Connect, you will be greeted with the App Information page. This page contains general information about your app that will inform your users about the various aspects of your app before purchasing.</p>
+
+<blockquote>
+<ol>
+<li>This is the name you created in the previous step.</li>
+<li>Subtitles will appear under your App Name and should help describe your app as briefly as possible.</li>
+<li>The Privacy Policy is optional, unless your app gathers data or is a &quot;Made for Kids&quot; app. In which case you will be required to enter a URL to your Privacy Policy.</li>
+<li>If you ever change your Bundle Identifier in Xcode, you will also need to change it here.</li>
+<li>Here you can add a secondary language if applicable.</li>
+</ol>
+</blockquote>
+
+<p><img src="images/AppInformation.png" title="App Information" alt="Appinformation" /></p>
+<h2 id='step-3-pricing-and-availability'>Step 3 — Pricing and Availability</h2>
+<p>The next tab down on the left side of the screen is the Pricing and Availability setup. From here you will need to set the price for your app (even if it is going to be sold as Free). Prices can also be set differently for different currencies.</p>
+
+<aside class="notice">
+The selected price is the customer facing price. Apple takes care of the tax then splits the revenue 70%/30% with the developer.
+</aside>
+
+<p>You are also able to setup preordering, customize availability by territory, offer discounts for volume purchases, and disable bitcode auto-recompilation.</p>
+<h2 id='step-4-prepare-for-submission'>Step 4 — Prepare for Submission</h2>
+<p>To finish the preparation process, select <b>1.0 Prepare for Submission</b>. This is the largest step (second to creating your app) and most complicated. This is simplified by handling each section individually.</p>
+
+<blockquote>
+<ol>
+<li>Every app submission requires at least one (and as many as 10) previews and screenshots for each of your app&#39;s supported devices. This is best accomplished by running your app in the simulator and pressing ⌘ + S to save a screenshot. A preview can be filmed by using either a device or the simulator and the Quicktime application to record the screen.</li>
+<li>Promotional text is the first thing a user will see when they tap on your app in the App Store. It is intended to be used as a way to highlight current features. Under this is the App Description, which is intended to detail the content of your application.</li>
+<li>Keywords — used to help users find your app when searched.<br>Support URL — a link to an external website used to answer potential user&#39;s questions.<br>Marketing URL — an optional link to help further inform a potential user on why they should download your app.</li>
+<li>A build of your app will appear here after it is sent to Apple through Xcode and finishes processing.</li>
+<li>General App Information — Starting with the upper left, the App Store Icon will be filled in when an uploaded build of your app is selected. Below this is the version number. it is populated with <code>1.0</code>, and should be increased with every version submitted to the App Store. Apple will not approve an app submitted with a less than <code>1.0</code> version number. A general age rating will be generated for your app by tapping <code>edit</code>, and filling out the corresponding survey. If you own a Copyright the date and Copyright holder should be entered in the field provided. A street address is required for an App Store submission, it will not be viewable on the App Store (unless <code>Trade Representative Contact Information</code> is selected, in which case the information provided will be viewable in the Korean store).</li>
+<li>If your application requires users to sign in you will need to provide a generic user for Apple to use with their review. You will also need to provide contact information for the reviewer and can provide any notes to help the reviewer understand aspects of your app.</li>
+</ol>
+</blockquote>
+
+<p><img src="images/PreparingForSubmission.png" title="App Information" alt="Preparingforsubmission" /></p>
+
+<aside class="warning">
+ Be sure to hit `Save` in the upper righthand side of the window before continuing.
+</aside>
+<h2 id='step-5-archiving-and-sending-a-build-to-apple'>Step 5 — Archiving and Sending a Build to Apple</h2>
+<p>Jumping out of iTunes Connect, open your application&#39;s project file. In order to get the app from Xcode to iTunes Connect an archived build needs to be sent to Apple.</p>
+
+<blockquote>
+<ol>
+<li>Before Archiving your project, make sure your project set to run on <code>Generic iOS Device</code> (or a physical device you have connected and paired to your developer account).</li>
+<li>In the menu bar, select <code>Product</code> and Archive.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 1:
+<img src="images/Xcode-01.png" title="Archive Step 1" alt="Xcode 01" /></p>
+
+<blockquote>
+<ol>
+<li>After the archive is built, select <code>Send To App Store</code></li>
+</ol>
+</blockquote>
+
+<p>Archive Step 2:
+<img src="images/Xcode-02.png" title="Archive Step 2" alt="Xcode 02" /></p>
+
+<blockquote>
+<ol>
+<li>Leave the settings at their default state and select <code>Next</code>.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 3:
+<img src="images/Xcode-03.png" title="Archive Step 3" alt="Xcode 03" /></p>
+
+<blockquote>
+<ol>
+<li>Select <code>Next</code>.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 4:
+<img src="images/Xcode-04.png" title="Archive Step 4" alt="Xcode 04" /></p>
+
+<blockquote>
+<ol>
+<li>Select Upload. This process should take up to about 5 minutes depending on the size of your app.</li>
+</ol>
+</blockquote>
+
+<p>Archive Step 5:
+<img src="images/Xcode-05.png" title="Archive Step 5" alt="Xcode 05" /></p>
+
+<p>After uploading the build it will take some time to process on Apple&#39;s servers before being available to add to your iTunes Connect (this has recently been improved to take 5-20 minutes). Once it has finished processing Apple will send an email (or push notification if you have the iTunes Connect iOS App downloaded).</p>
+
+<p>Switching back to iTunes Connect, select the build you just uploaded in the <b>1.0 Prepare for Submission</b> section (see Step — 4 item 4). Once the build has been selected, save your progress again and select <code>Submit for Review</code>. The review process can take anywhere from a few hours to a few days to complete, but once it does your app will be available in the App Store for download (unless Apple rejects it, in which case, follow their directions on what needs to be changed and follow the above steps to resubmit).</p>
+
+<p>Best of luck!</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
