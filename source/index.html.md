@@ -34,6 +34,10 @@ Icons can be easily prepared by downloading the Mac App Prepo on the Mac App Sto
 Screenshots can be prepared in the simulator by pressing `CMD + S` on the screen you would like to capture in the simulator.
 </aside>
 
+## Warnings:
+
+Any mistakes you might make in this process will be fairly easy to recover from. The key thing to keep track of is your Bundle Identifier. This is what connects your project in Xcode to your app in iTunes Connect. Within iTunes Connect, Apple won't let you continue unless the current step is complete.
+
 # Creating your App in iTunes Connect
 
 ## Step 1 — Initialization
